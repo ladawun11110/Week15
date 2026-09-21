@@ -4,7 +4,17 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AuthController;
 
+
+
+
+
+// // สามารถส่งคำขอสมัครสมาชิกได้โดยไม่ต้องแนบ Token
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
 
 //นักอ่าน
 Route::get('/', [BlogController::class, 'index'])->name('index');
@@ -29,3 +39,4 @@ Route::prefix('author')->group(function () {
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/back', [AdminController::class, 'goBack'])->name('back');
+
